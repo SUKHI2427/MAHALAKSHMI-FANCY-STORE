@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahalakshmi Fancy Store — Konanakunte, Bengaluru</title>
+<meta name="description" content="Mahalakshmi Fancy Store, Chunchaghatta Main Road, Konanakunte — bangles, bindis, imitation jewellery, bags, kitchenware and cufflinks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon-deep:#3E1119;
+    --maroon-mid:#551D2C;
+    --maroon-light:#71324A;
+    --maroon-darker:#2A0B12;
+    --rose-wine:#77324A;
+    --rose-wine-soft:#8C4259;
+    --gold:#D4AF37;
+    --gold-bright:#F0CE72;
+    --ivory:#F4E8DA;
+    --ivory-dim:#D8BFA9;
+    --plum-shadow:#260810;
+    --line: rgba(212,175,55,0.28);
+    --radius-cut: 26px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--maroon-deep);
+    color:var(--ivory);
+    font-family:'Jost',"Segoe UI",Arial,sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+    font-weight:600;
+    margin:0;
+    color:var(--ivory);
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{max-width:100%;display:block;}
+  ul{margin:0;padding:0;list-style:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  section{position:relative;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  :focus-visible{outline:2px solid var(--gold-bright); outline-offset:3px;}
+
+  /* ---------- Ornamental jali divider ---------- */
+  .jali{
+    height:26px;
+    width:100%;
+    background-image:
+      linear-gradient(45deg, var(--line) 25%, transparent 25%, transparent 75%, var(--line) 75%),
+      linear-gradient(45deg, var(--line) 25%, transparent 25%, transparent 75%, var(--line) 75%);
+    background-size:26px 26px;
+    background-position:0 0, 13px 13px;
+    opacity:0.55;
+  }
+
+  /* ---------- Nav ---------- */
+  header.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(38,8,16,0.72);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px;margin:0 auto;padding:16px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand-mark{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.35rem;
+    letter-spacing:0.03em;
+    color:var(--gold-bright);
+  }
+  .brand-mark span{color:var(--ivory-dim);font-size:0.65em;display:block;font-family:'Jost',sans-serif;letter-spacing:0.18em;margin-top:2px;}
+  nav.links{display:flex;gap:34px;}
+  nav.links a{
+    font-size:0.92rem; color:var(--ivory-dim); position:relative; padding:4px 0;
+    transition:color 0.25s ease;
+  }
+  nav.links a:hover, nav.links a:focus-visible{color:var(--gold-bright);}
+  nav.links a::after{
+    content:""; position:absolute; left:0; bottom:0; height:1px; width:0;
+    background:var(--gold); transition:width 0.3s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:8px 10px;color:var(--ivory);}
+  @media(max-width:820px){
+    nav.links{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--plum-shadow); flex-direction:column; gap:0;
+      max-height:0; overflow:hidden; transition:max-height 0.35s ease;
+      border-bottom:1px solid var(--line);
+    }
+    nav.links.open{max-height:340px;}
+    nav.links a{padding:16px 32px; border-top:1px solid var(--line);}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    padding:150px 24px 90px;
+    background:
+      radial-gradient(circle at 50% 18%, rgba(212,175,55,0.10), transparent 55%),
+      linear-gradient(180deg, var(--maroon-deep) 0%, var(--maroon-mid) 100%);
+    position:relative;
+    overflow:hidden;
+  }
+  .bangle-rings{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .bangle-rings svg{width:min(760px,92vw); opacity:0.5;}
+  .hero-content{position:relative;z-index:1;max-width:760px;}
+  .eyebrow-place{
+    font-size:0.85rem; color:var(--ivory-dim); letter-spacing:0.06em; margin-bottom:18px;
+  }
+  .store-name{
+    font-size:clamp(2.6rem, 7vw, 5rem);
+    color:var(--gold);
+    line-height:1.05;
+    text-shadow:0 0 10px rgba(240,206,114,0.35), 0 0 26px rgba(212,175,55,0.28);
+    animation:glow 4.5s ease-in-out infinite;
+  }
+  @keyframes glow{
+    0%,100%{text-shadow:0 0 8px rgba(240,206,114,0.28), 0 0 22px rgba(212,175,55,0.22);}
+    50%{text-shadow:0 0 18px rgba(240,206,114,0.55), 0 0 42px rgba(212,175,55,0.4);}
+  }
+  .store-tagline{
+    margin-top:22px; font-size:clamp(1.05rem,2vw,1.3rem);
+    font-style:italic; color:var(--ivory-dim); font-family:'Cormorant Garamond',serif;
+  }
+  .hero-meta{
+    margin-top:30px; font-size:0.95rem; color:var(--ivory-dim);
+  }
+  .hero-cta{
+    margin-top:40px; display:flex; gap:18px; justify-content:center; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block; padding:14px 34px; font-size:0.92rem; letter-spacing:0.03em;
+    border-radius:2px 14px 2px 14px; transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-gold{ background:linear-gradient(120deg,var(--gold),var(--gold-bright)); color:var(--plum-shadow); font-weight:600;}
+  .btn-gold:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(212,175,55,0.28);}
+  .btn-outline{ border:1px solid var(--line); color:var(--ivory);}
+  .btn-outline:hover{border-color:var(--gold-bright); color:var(--gold-bright);}
+
+  /* ---------- Section heading pattern ---------- */
+  .section-head{max-width:620px; margin-bottom:56px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);}
+  .section-head p{margin-top:14px; color:var(--ivory-dim); font-size:1.02rem;}
+
+  /* ---------- Story ---------- */
+  .story{ padding:110px 0; background:var(--maroon-light);}
+  .story-grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:70px; align-items:center;
+  }
+  .story-visual{
+    position:relative; aspect-ratio:4/5; border-radius:var(--radius-cut);
+    background:
+      radial-gradient(circle at 30% 28%, rgba(240,206,114,0.22), transparent 55%),
+      linear-gradient(155deg, var(--rose-wine) 0%, var(--maroon-deep) 78%);
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--line);
+  }
+  .story-visual svg{width:46%;opacity:0.9;}
+  .story-rule{
+    width:2px; background:linear-gradient(var(--gold), transparent);
+    height:64px; margin:0 0 26px;
+  }
+  .story h2{font-size:clamp(1.9rem,3.6vw,2.6rem);}
+  .story-copy p{color:var(--ivory-dim); margin-top:18px; max-width:56ch;}
+  .story-copy p:first-of-type{margin-top:26px;}
+  .story-facts{display:flex; gap:40px; margin-top:36px; flex-wrap:wrap;}
+  .story-facts div strong{display:block; font-family:'Cormorant Garamond',serif; font-size:1.9rem; color:var(--gold-bright);}
+  .story-facts div span{font-size:0.85rem; color:var(--ivory-dim);}
+
+  @media(max-width:900px){
+    .story-grid{grid-template-columns:1fr; gap:40px;}
+    .story-visual{max-width:340px; margin:0 auto;}
+  }
+
+  /* ---------- Collections strip ---------- */
+  .collections{padding:100px 0; background:var(--maroon-darker);}
+  .collection-row{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+  }
+  .collection-card{
+    border:1px solid var(--line); padding:30px 26px; border-radius:4px 22px 4px 22px;
+    background:linear-gradient(160deg, rgba(119,50,74,0.4), rgba(62,17,25,0.2));
+    transition:border-color 0.3s ease, transform 0.3s ease;
+  }
+  .collection-card:hover{border-color:var(--gold); transform:translateY(-4px);}
+  .collection-card svg{width:34px; height:34px; margin-bottom:18px;}
+  .collection-card h3{font-size:1.35rem; margin-bottom:8px;}
+  .collection-card p{color:var(--ivory-dim); font-size:0.92rem;}
+  @media(max-width:820px){.collection-row{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.collection-row{grid-template-columns:1fr;}}
+
+  /* ---------- Gallery / Aisles ---------- */
+  .gallery{padding:110px 0; background:var(--maroon-light);}
+  .aisle-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows:190px;
+    gap:16px;
+  }
+  .aisle{
+    position:relative; border-radius:3px 20px 3px 20px; overflow:hidden;
+    padding:22px; display:flex; flex-direction:column; justify-content:flex-end;
+    border:1px solid var(--line);
+  }
+  .aisle .tag{font-size:0.72rem; color:var(--ivory-dim); letter-spacing:0.05em;}
+  .aisle h4{font-size:1.25rem; margin-top:4px; color:var(--ivory);}
+  .aisle svg{position:absolute; top:20px; right:20px; width:30px; height:30px; opacity:0.85;}
+  .aisle.tall{grid-row:span 2;}
+  .aisle.wide{grid-column:span 2;}
+  .a1{background:linear-gradient(150deg,#8C4259,#3E1119);}
+  .a2{background:linear-gradient(150deg,#6E2338,#260810);}
+  .a3{background:linear-gradient(150deg,#9C5A3C,#3E1119);}
+  .a4{background:linear-gradient(150deg,#77324A,#551D2C);}
+  .a5{background:linear-gradient(150deg,#5C3A20,#3E1119);}
+  .a6{background:linear-gradient(150deg,#8C4259,#551D2C);}
+  .a7{background:linear-gradient(150deg,#A6672E,#4A1815);}
+  .a8{background:linear-gradient(150deg,#6E2338,#3E1119);}
+  @media(max-width:900px){
+    .aisle-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:170px;}
+    .aisle.tall{grid-row:span 1;}
+    .aisle.wide{grid-column:span 2;}
+  }
+  @media(max-width:560px){
+    .aisle-grid{grid-template-columns:1fr;}
+    .aisle.wide{grid-column:span 1;}
+  }
+
+  /* ---------- Festive banner ---------- */
+  .festive{
+    padding:90px 0; text-align:center;
+    background:linear-gradient(120deg, var(--maroon-deep), var(--rose-wine) 60%, var(--maroon-deep));
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .festive h2{font-size:clamp(1.8rem,4vw,2.6rem); color:var(--gold-bright);}
+  .festive p{max-width:560px; margin:18px auto 0; color:var(--ivory-dim);}
+
+  /* ---------- Why us ---------- */
+  .why{padding:110px 0; background:var(--maroon-darker);}
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
+  .why-item{text-align:left;}
+  .why-item .num{font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:var(--gold); display:block; margin-bottom:10px;}
+  .why-item h3{font-size:1.2rem; margin-bottom:8px;}
+  .why-item p{color:var(--ivory-dim); font-size:0.92rem;}
+  @media(max-width:900px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Reviews ---------- */
+  .reviews{padding:110px 0; background:var(--maroon-light);}
+  .rating-badge{
+    display:inline-flex; align-items:center; gap:14px; margin-bottom:50px;
+    border:1px solid var(--line); padding:14px 24px; border-radius:3px 18px 3px 18px;
+  }
+  .rating-badge strong{font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:var(--gold-bright);}
+  .rating-badge span{color:var(--ivory-dim); font-size:0.88rem;}
+  .review-row{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .review-card{
+    border:1px solid var(--line); padding:34px 28px; border-radius:3px 20px 3px 20px;
+    background:rgba(62,17,25,0.35);
+  }
+  .review-card:nth-child(2){transform:translateY(22px);}
+  .quote-mark{font-family:'Cormorant Garamond',serif; font-size:3rem; color:var(--gold); line-height:0.5; display:block; margin-bottom:14px;}
+  .review-card p.quote{color:var(--ivory-dim); font-size:0.98rem;}
+  .review-name{margin-top:20px; font-size:0.9rem; color:var(--ivory);}
+  .review-name span{color:var(--ivory-dim); display:block; font-size:0.8rem;}
+  @media(max-width:900px){.review-row{grid-template-columns:1fr;} .review-card:nth-child(2){transform:none;}}
+
+  /* ---------- Visit ---------- */
+  .visit{padding:110px 0 130px; background:var(--maroon-darker);}
+  .visit-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px;}
+  .visit-card{
+    border:1px solid var(--line); border-radius:4px 22px 4px 22px;
+    padding:38px; background:linear-gradient(160deg, rgba(119,50,74,0.3), rgba(62,17,25,0.15));
+  }
+  .visit-card h3{font-size:1.3rem; margin-bottom:16px; color:var(--gold-bright);}
+  .visit-card p{color:var(--ivory-dim); margin-bottom:6px; font-size:0.95rem;}
+  .visit-map{
+    border-radius:4px 22px 4px 22px; border:1px solid var(--line); overflow:hidden;
+    min-height:320px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(160deg,#551D2C,#260810);
+  }
+  .visit-map iframe{width:100%; height:100%; min-height:320px; border:0; filter:grayscale(0.15) sepia(0.12);}
+  @media(max-width:900px){.visit-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--plum-shadow); padding:70px 0 30px; border-top:1px solid var(--line);}
+  .footer-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:40px;}
+  footer h4{color:var(--gold-bright); font-size:1.1rem; margin-bottom:16px;}
+  footer p, footer li{color:var(--ivory-dim); font-size:0.9rem; margin-bottom:8px;}
+  footer .brand-mark{margin-bottom:14px;}
+  .footer-bottom{
+    margin-top:56px; padding-top:24px; border-top:1px solid var(--line);
+    text-align:center; font-size:0.8rem; color:var(--ivory-dim);
+  }
+  @media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr; gap:32px;}}
+  @media(max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand-mark">Mahalakshmi<span>Fancy Store</span></a>
+    <nav class="links" id="navLinks">
+      <a href="#story">Our Story</a>
+      <a href="#collections">Collections</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit Us</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="bangle-rings" aria-hidden="true">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="170" fill="none" stroke="#D4AF37" stroke-width="2"/>
+      <circle cx="200" cy="200" r="140" fill="none" stroke="#D4AF37" stroke-width="1.5"/>
+      <circle cx="200" cy="200" r="110" fill="none" stroke="#F0CE72" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow-place">Chunchaghatta Main Road · Konanakunte · Bengaluru</p>
+    <h1 class="store-name">Mahalakshmi Fancy Store</h1>
+    <p class="store-tagline">Bangles, bindis and little treasures for every occasion</p>
+    <p class="hero-meta">Preethvi Complex, No. 1048 · Open Monday–Saturday, 9 AM – 7 PM</p>
+    <div class="hero-cta">
+      <a href="#gallery" class="btn btn-gold">Browse the aisles</a>
+      <a href="#visit" class="btn btn-outline">Get directions</a>
+    </div>
+  </div>
+</section>
+
+<div class="jali" aria-hidden="true"></div>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div class="story-visual">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#F0CE72" stroke-width="1.4">
+        <circle cx="50" cy="38" r="20"/>
+        <circle cx="50" cy="38" r="13"/>
+        <path d="M20 78 Q50 60 80 78" />
+      </svg>
+    </div>
+    <div>
+      <div class="story-rule"></div>
+      <h2>A neighbourhood institution on Chunchaghatta Main Road</h2>
+      <div class="story-copy">
+        <p>Long before online shopping came to Konanakunte, families here were already walking into Mahalakshmi Fancy Store for the small things that make a big day feel complete — a matching set of bangles for a wedding, the right bindi for a festival morning, a birthday gift picked out in ten minutes flat.</p>
+        <p>The shop has built its name the old way: by keeping shelves full of variety, remembering regular customers by face, and never making anyone feel rushed while they choose. It's the kind of store you're pointed to by a neighbour rather than found through an advertisement — which is exactly why it deserves a proper home online.</p>
+        <p>Everything on these shelves is chosen with one question in mind: will this earn a smile the moment it's unwrapped, worn, or set out on the kitchen counter?</p>
+      </div>
+      <div class="story-facts">
+        <div><strong>4.3 / 5</strong><span>Customer rating</span></div>
+        <div><strong>7+</strong><span>Product categories in store</span></div>
+        <div><strong>6 days</strong><span>Open every week</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="collections" id="collections">
+  <div class="wrap">
+    <div class="section-head center">
+      <h2>What's on the shelves</h2>
+      <p>A little bit of everything a home and a wardrobe might need — chosen with care, priced to be picked up without a second thought.</p>
+    </div>
+    <div class="collection-row">
+      <div class="collection-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+        <h3>Bangles</h3>
+        <p>Designer glass bangles and Italian bronze pieces in colours to match every outfit and occasion.</p>
+      </div>
+      <div class="collection-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.4"><circle cx="12" cy="12" r="4.5"/></svg>
+        <h3>Bindis &amp; Tikka</h3>
+        <p>Everyday and festive bindis in every size, shape and finish, sold the way they're actually used — in bulk.</p>
+      </div>
+      <div class="collection-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.4"><path d="M6 3l3 4h6l3-4M4 8h16l-1.5 12h-13z"/></svg>
+        <h3>Imitation Jewellery</h3>
+        <p>Necklace sets, earrings and everyday jewellery that dress up a saree or a simple kurta alike.</p>
+      </div>
+      <div class="collection-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.4"><path d="M4 9h16v10H4z"/><path d="M8 9V6a4 4 0 018 0v3"/></svg>
+        <h3>Bags &amp; Clutches</h3>
+        <p>Everyday handbags and evening clutches picked for durability as much as looks.</p>
+      </div>
+      <div class="collection-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.4"><rect x="4" y="10" width="16" height="8" rx="1"/><path d="M8 10V7h8v3"/></svg>
+        <h3>Kitchenware</h3>
+        <p>Everyday and gifting-worthy kitchenware — practical pieces that double as a housewarming present.</p>
+      </div>
+      <div class="collection-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.4"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M9 8V6a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+        <h3>Cufflinks</h3>
+        <p>Neat, understated cufflinks for the men shopping for weddings, interviews or Sunday best.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY / AISLES -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Walk the aisles</h2>
+      <p>Eight corners of the store worth stopping at — a preview of what's waiting on the shelves before you visit.</p>
+    </div>
+    <div class="aisle-grid">
+      <div class="aisle a1 tall">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F4E8DA" stroke-width="1.3"><circle cx="12" cy="12" r="9"/></svg>
+        <p class="tag">Aisle 1</p><h4>Bangles</h4>
+      </div>
+      <div class="aisle a2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F4E8DA" stroke-width="1.3"><circle cx="12" cy="12" r="4.5"/></svg>
+        <p class="tag">Aisle 2</p><h4>Bindi &amp; Tikka</h4>
+      </div>
+      <div class="aisle a3 wide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F4E8DA" stroke-width="1.3"><path d="M6 3l3 4h6l3-4M4 8h16l-1.5 12h-13z"/></svg>
+        <p class="tag">Aisle 3</p><h4>Imitation Jewellery</h4>
+      </div>
+      <div class="aisle a4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F4E8DA" stroke-width="1.3"><path d="M4 9h16v10H4z"/><path d="M8 9V6a4 4 0 018 0v3"/></svg>
+        <p class="tag">Aisle 4</p><h4>Bags &amp; Clutches</h4>
+      </div>
+      <div class="aisle a5">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F4E8DA" stroke-width="1.3"><rect x="4" y="10" width="16" height="8" rx="1"/><path d="M8 10V7h8v3"/></svg>
+        <p class="tag">Aisle 5</p><h4>Kitchenware</h4>
+      </div>
+      <div class="aisle a6 tall">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F4E8DA" stroke-width="1.3"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M9 8V6a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+        <p class="tag">Aisle 6</p><h4>Cufflinks</h4>
+      </div>
+      <div class="aisle a7 wide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F4E8DA" stroke-width="1.3"><path d="M12 3l2.5 6H21l-5 4 2 7-6-4.2L6 20l2-7-5-4h6.5z"/></svg>
+        <p class="tag">Aisle 7</p><h4>Bridal &amp; Festive</h4>
+      </div>
+      <div class="aisle a8">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F4E8DA" stroke-width="1.3"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 7v14M12 7c-2 0-4-1.5-4-3.5S9 2 10.5 2 12 4.5 12 7zm0 0c2 0 4-1.5 4-3.5S13.5 2 12 2 10 4.5 12 7z"/></svg>
+        <p class="tag">Aisle 8</p><h4>Gifting Corner</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FESTIVE BANNER -->
+<section class="festive">
+  <div class="wrap">
+    <h2>Wedding season? Come in early.</h2>
+    <p>Bridal bangle sets and festive jewellery move fast in the weeks before a wedding or a big festival — the earlier you visit, the fuller the selection.</p>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Why regulars keep coming back</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="num">01</span>
+        <h3>Real variety</h3>
+        <p>Seven-plus product categories under one roof, from festive bangles to everyday kitchenware.</p>
+      </div>
+      <div class="why-item">
+        <span class="num">02</span>
+        <h3>No rush, no pressure</h3>
+        <p>Take the time to compare, try on and ask questions — that's how most regulars shop here.</p>
+      </div>
+      <div class="why-item">
+        <span class="num">03</span>
+        <h3>Fair, steady pricing</h3>
+        <p>The kind of pricing that doesn't change depending on how the shop is feeling that day.</p>
+      </div>
+      <div class="why-item">
+        <span class="num">04</span>
+        <h3>A trusted local name</h3>
+        <p>Years of walk-in trust from the neighbourhood, reflected in a 4.3 out of 5 shopper rating.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="jali" aria-hidden="true"></div>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What shoppers say</h2>
+    </div>
+    <div class="rating-badge">
+      <strong>4.3</strong>
+      <span>out of 5<br>based on shopper reviews</span>
+    </div>
+    <div class="review-row">
+      <div class="review-card">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote">Went in looking for one thing and came out with three — the bangle collection alone is worth the visit. Good range for the price.</p>
+        <p class="review-name">Divya R.<span>Konanakunte</span></p>
+      </div>
+      <div class="review-card">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote">Bought bindis and a gift set here before a family function. Quick, friendly service and everything was neatly packed.</p>
+        <p class="review-name">Anitha S.<span>JP Nagar</span></p>
+      </div>
+      <div class="review-card">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote">My go-to for last-minute gifts. The kitchenware section has surprisingly good options for the space.</p>
+        <p class="review-name">Prakash M.<span>Anjanapura</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div class="visit-card">
+      <h3>Visit the store</h3>
+      <p>Preethvi Complex, No. 1048</p>
+      <p>Chunchaghatta Main Road, Konanakunte</p>
+      <p>Bengaluru, Karnataka – 560062</p>
+      <br>
+      <h3>Hours</h3>
+      <p>Monday – Saturday: 9:00 AM – 7:00 PM</p>
+      <p>Sunday: Closed</p>
+      <br>
+      <h3>Get in touch</h3>
+      <p>Ask for Pooja</p>
+      <p>+91 80 4101 7836 / 7230</p>
+    </div>
+    <div class="visit-map">
+      <iframe
+        title="Map to Chunchaghatta Main Road, Konanakunte, Bengaluru"
+        src="https://www.google.com/maps?q=Chunchaghatta+Main+Road,+Konanakunte,+Bengaluru+560062&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="#home" class="brand-mark">Mahalakshmi<span>Fancy Store</span></a>
+      <p>Bangles, bindis, jewellery, bags, kitchenware and cufflinks — everything for the everyday and the occasion.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li>Preethvi Complex, No. 1048</li>
+        <li>Chunchaghatta Main Road</li>
+        <li>Konanakunte, Bengaluru 560062</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>Ask for Pooja</li>
+        <li>+91 80 4101 7836</li>
+        <li>Mon–Sat, 9 AM–7 PM</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; <span id="year"></span> Mahalakshmi Fancy Store, Konanakunte. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    });
+  });
+</script>
+
+</body>
+</html>
